@@ -1,4 +1,5 @@
 mod prompts;
+use prompts::confirm::Confirm;
 use prompts::fuzzy_select::FuzzySelect;
 use prompts::input::Input;
 
@@ -69,9 +70,13 @@ fn main() {
             .allow_empty(false)
             .interact()
             .unwrap();
-
-
         println!("{}", name);
+    }
+    else{
+        let confirmed = Confirm::new()
+            .interact()
+            .unwrap();
+        println!("{}", confirmed);
     }
 
 }
